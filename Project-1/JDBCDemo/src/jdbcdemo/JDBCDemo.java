@@ -37,7 +37,7 @@ public class JDBCDemo extends javax.swing.JFrame {
     private void initComponents() {
 
         txtName = new javax.swing.JTextField();
-        txtAge = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         txtSalary = new javax.swing.JTextField();
         btnAddOnAction = new javax.swing.JButton();
@@ -45,6 +45,7 @@ public class JDBCDemo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
+        btnClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,11 +57,11 @@ public class JDBCDemo extends javax.swing.JFrame {
             }
         });
 
-        txtAge.setText("Id");
-        txtAge.setToolTipText("");
-        txtAge.addActionListener(new java.awt.event.ActionListener() {
+        txtId.setText("Id");
+        txtId.setToolTipText("");
+        txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgeActionPerformed(evt);
+                txtIdActionPerformed(evt);
             }
         });
 
@@ -117,25 +118,34 @@ public class JDBCDemo extends javax.swing.JFrame {
             customerTable.getColumnModel().getColumn(3).setHeaderValue("Salary");
         }
 
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddOnAction, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnViewOnAction, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
-                    .addComponent(txtSalary, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnAddOnAction, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnViewOnAction, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
+                        .addComponent(txtSalary, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,19 +154,21 @@ public class JDBCDemo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAddOnAction)
-                            .addComponent(btnViewOnAction)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAddOnAction, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                            .addComponent(btnViewOnAction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -206,13 +218,35 @@ public class JDBCDemo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgeActionPerformed
+    }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnAddOnActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOnActionActionPerformed
-        // TODO add your handling code here:
+        String textId = txtId.getText();
+        String textName = txtName.getText();
+        String textAddress = txtAddress.getText();
+        String textSalary = txtSalary.getText();
+        
+        String SQL = "INSERT INTO Customer VALUES('C013', 'Sam', 'Colombo', 10000)";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "2003");
+            Statement stm = connection.createStatement();
+            int res = stm.executeUpdate(SQL);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JDBCDemo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCDemo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAddOnActionActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtId.setText("");
+        txtName.setText("");
+        txtAddress.setText("");
+        txtSalary.setText("");       
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,12 +285,13 @@ public class JDBCDemo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddOnAction;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnViewOnAction;
     private javax.swing.JTable customerTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtSalary;
     // End of variables declaration//GEN-END:variables
