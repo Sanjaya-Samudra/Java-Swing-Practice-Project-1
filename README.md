@@ -19,3 +19,12 @@ Java Swing is a part of Java's Standard Library used for building graphical user
 - **Rich Component Set**: Comes with a wide range of pre-built components, making it easier to create complex interfaces.
 - **Enhanced Capabilities**: Supports advanced features such as tabbed panes, toolbars, and complex tables with editable cells.
 
+## Getting Started
+
+To use Java Swing in your Java application, include the following import statements in your code:
+
+```java
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
