@@ -1,0 +1,23 @@
+CREATE DATABASE Kade;
+
+USE Kade;
+
+CREATE TABLE Customer(
+	id VARCHAR(6) NOT NULL,
+	name VARCHAR(30),
+	address VARCHAR(30),
+	salary DECIMAL(10,2),
+	CONSTRAINT PRIMARY KEY (id)
+);
+
+
+INSERT INTO Customer VALUES('C001','Danapala','Panadura',54000);
+INSERT INTO Customer VALUES('C002','Gunapala','Matara',44000);
+INSERT INTO Customer VALUES('C003','Somapala','Galle',82000);
+INSERT INTO Customer VALUES('C004','Siripala','Galle',24000);
+INSERT INTO Customer VALUES('C005','Jinadasa','Panadura',94000);
+INSERT INTO Customer VALUES('C006','Sepalika','Kalutara',58000);
+INSERT INTO Customer VALUES('C007','Jinasena','Ambalangoda',51000);
+INSERT INTO Customer VALUES('C008','Somadasa','Baddegama',34000);
+INSERT INTO Customer VALUES('C009','Danasiri','Moratuwa',29000);
+INSERT INTO Customer VALUES('C010','Somasiri','Kandy',64000);

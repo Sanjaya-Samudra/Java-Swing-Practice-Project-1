@@ -180,7 +180,7 @@ public class JDBCDemo extends javax.swing.JFrame {
         String SQL = "SELECT * FROM Customer";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/thogakade", "root", "2003");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/kade", "root", "2003");
             Statement stm= connection.createStatement();
             ResultSet rst = stm.executeQuery(SQL);
             while(rst.next()){
@@ -231,7 +231,7 @@ public class JDBCDemo extends javax.swing.JFrame {
         String SQL = "INSERT INTO Customer VALUES('C013', 'Sam', 'Colombo', 10000)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "2003");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/kade", "root", "2003");
             Statement stm = connection.createStatement();
             int res = stm.executeUpdate(SQL);
         } catch (ClassNotFoundException ex) {
