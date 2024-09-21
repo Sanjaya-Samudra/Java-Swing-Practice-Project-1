@@ -21,10 +21,5 @@ Java Swing is a part of Java's Standard Library used for building graphical user
 
 ## Getting Started
 
-To use Java Swing in your Java application, include the following import statements in your code:
-
-```java
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+```bash
+git clone https://github.com/Sanjaya-Samudra/Java-Swing-Practice-Project-1.git
